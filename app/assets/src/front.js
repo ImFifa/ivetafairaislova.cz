@@ -2,16 +2,32 @@ import "@theme/front/init.scss";
 
 import "./lazysizes";
 
+const $nav = document.querySelector('#navbar');
+const $scrollTopBtn = document.querySelector('#scrollTopBtn');
 
-const $googleMap = $('#google-map');
-let mapInitialized = false;
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        $nav.style.top = "0";
+    } else {
+        $nav.style.top = "-100px";
+    }
+    prevScrollpos = currentScrollPos;
 
-$(document).ready(function(){
-    if (!mapInitialized) {
-        $googleMap.attr('src', $googleMap.data('src'));
-        mapInitialized = true;
+    if (currentScrollPos > window.innerHeight) {
+        $nav.style.backgroundColor = "rgba(20,20,20,.8)";
+        $scrollTopBtn.style.display = "block";
+    } else {
+        $nav.style.backgroundColor = "unset";
+        $scrollTopBtn.style.display = "none";
     }
 
+};
+
+
+
+$(document).ready(function(){
     // smooth scroll
     // Add smooth scrolling to all links
     $(".scroll").on('click', function(event) {

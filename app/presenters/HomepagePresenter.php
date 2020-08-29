@@ -11,4 +11,9 @@ final class HomepagePresenter extends BasePresenter
 
     }
 
+    public function renderResults(): void
+    {
+
+    }
+
 }
