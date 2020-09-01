@@ -5,6 +5,8 @@ import lightbox from "lightbox2/dist/js/lightbox";
 
 import "./lazysizes";
 
+import 'bootstrap/js/dist/collapse';
+
 const $nav = document.querySelector("#navbar");
 const $scrollTopBtn = document.querySelector("#scrollTopBtn");
 
@@ -14,11 +16,12 @@ window.onscroll = function() {
 	if (prevScrollpos > currentScrollPos) {
 		$nav.style.top = "0";
 	} else {
-		$nav.style.top = "-100px";
+		$nav.style.top = "-130px";
 	}
 	prevScrollpos = currentScrollPos;
 
-	if (currentScrollPos > 200) {
+
+	if (currentScrollPos > 200 && window.innerWidth > 1000) {
 		$nav.style.backgroundColor = "#177098";
 	} else if (currentScrollPos < 1) {
 		$nav.style.backgroundColor = "unset";

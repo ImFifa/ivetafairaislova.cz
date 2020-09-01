@@ -23,13 +23,14 @@ final class HomepagePresenter extends BasePresenter
     {
         $this->template->news = $this->news->getPublicNews($this->lang)->limit(1);
         $this->template->events = $this->repository->getEvents();
+        $this->template->year = max($this->repository->getYearsOfResults());
     }
 
-    public function renderGallery($name): void
+    public function renderGallery($year): void
     {
 
         $this->template->galleries = $this->repository->getAllGalleries();
-        $this->template->gallery = $this->repository->getGallery($name);
+        $this->template->gallery = $this->repository->getGallery($year);
         $this->template->images = $this->images->getImagesByGallery($this->template->gallery->id);
 
     }

@@ -47,12 +47,15 @@ class ProjectModelRepository extends ModelRepository
             $arr[] = date("Y", strtotime((string) $result->date));
         }
 
-        return array_unique($arr);
+        $arr = array_unique($arr);
+        rsort($arr);
+        return $arr;
     }
 
     // events
     public function getEvents(): array
     {
-        return $this->event->getTable()->order('date DESC')->limit(3)->fetchAll();
+        $date = date("Y-m-d");
+        return $this->event->getTable()->where('date_from >', $date)->order('date_from ASC')->limit(3)->fetchAll();
     }
 }

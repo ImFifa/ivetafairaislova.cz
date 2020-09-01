@@ -83,11 +83,28 @@ body {
 
 .navbar {
   transition: top 0.3s ease-in-out;
+  padding: 0;
+
+  .btn-area {
+    padding: .8rem 1rem;
+    background-color: $primary;
+    border-bottom-left-radius: 50%;
+    z-index: 121;
+    display: none;
+
+    .navbar-toggler {
+      margin-left: .2rem;
+
+      &:focus {
+        outline-color: rgba($white, .4);
+      }
+    }
+  }
 
   a {
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: $gray-300;
     transition: .15s ease-in;
@@ -239,7 +256,7 @@ header {
   background-image: url("../../img/header.jpg");
   background-size: cover;
   background-position: center;
-  height: 40vh;
+  min-height: 40vh;
   width: 100vw;
   position: relative;
   z-index: 1;
@@ -248,12 +265,17 @@ header {
   justify-content: center;
   align-items: center;
 
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
   h1 {
     color: $white;
   }
 
   &::before {
-    height: 40vh;
+    height: 100%;
   }
 
   .active {
@@ -265,10 +287,12 @@ header {
 }
 
 #about {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-
+  .container {
+    display: grid;
+    grid-template-areas: "img about";
+    grid-gap: 120px;
+    justify-content: center;
+  }
   img, .about-text {
     max-width: 500px;
     width: 100%;
@@ -332,20 +356,24 @@ header {
 }
 
 #informations {
+  padding-top: 0;
   position: relative;
 
   .informations-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas: "news events";
     grid-gap: 240px;
   }
 
   .news {
+    padding-top: 120px;
     grid-area: news;
   }
 
   .events {
+    padding-top: 120px;
     grid-area: events;
   }
 

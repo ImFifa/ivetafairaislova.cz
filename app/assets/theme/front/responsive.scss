@@ -1,6 +1,151 @@
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   .navbar {
-    padding: .5rem 1rem;
+    padding: .8rem 1rem;
     background-color: unset;
+  }
+
+}
+
+
+@include media-breakpoint-down(md) {
+  .navbar {
+    padding: 0;
+
+    .btn-area {
+      display: block;
+    }
+  }
+  .navbar-collapse {
+    background-color: $secondary;
+    position: fixed;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 120;
+  }
+
+  .fixed-top {
+    left: unset;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+}
+@include media-breakpoint-down(xsm) {
+  .subheader {
+    padding: 2rem 0;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .scroll-top {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .btn {
+    margin: 0 auto;
+    display: table;
+  }
+
+  #about {
+  grid-template-areas: "img"
+  "about";
+    grid-gap: 30px;
+
+    .about-text {
+      margin-top: 2rem;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  #achievements {
+    padding: 30px 0;
+    .container {
+      .row {
+        .col-md-6 {
+          padding: 1.5rem 0;
+          span {
+            strong {
+              line-height: 3.4rem;
+              font-size: 2.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #informations {
+    padding-top: 0;
+
+    #events, #news {
+      padding-top: 60px;
+    }
+
+    .informations-grid {
+      grid-template-areas: "news" "events";
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr;
+      grid-gap: 40px;
+    }
+
+    &::before {
+      background-color: unset;
+    }
+  }
+
+  #gallery {
+    min-height: 400px;
+
+    &::before {
+      min-height: 400px;
+    }
+  }
+  .events {
+    .event {
+      background-color: rgba(54, 161, 208, 0.2);
+    }
+  }
+  .home {
+    align-items: flex-end;
+
+    .container {
+      margin-bottom: 6rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .scroll-down {
+      i {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  header {
+    .subheading {
+      padding-left: 3rem;
+      &::before {
+        width: 2rem;
+      }
+    }
   }
 }

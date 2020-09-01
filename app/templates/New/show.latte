@@ -2,8 +2,10 @@
 
 
 <header class="subheader">
+    <div class="container">
     <h1 n:block="title">{$new->title}</h1>
     <div class="subheading">{$new->created|date:'d. m. Y'}</div>
+    </div>
 </header>
 
 <section class="new-page" id="new-page">
@@ -32,6 +34,6 @@
         </div>
 
 
-        <a n:href="New:" class="btn btn-primary btn-sm">Archiv novinek</a>
+        <a n:href="New:" class="btn btn-primary">Archiv novinek</a>
     </div>
 </section>

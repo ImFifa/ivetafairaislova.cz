@@ -7,7 +7,6 @@ application:
 		*: App\*Module\Presenters\*Presenter
 
 session:
-	debugger: true
 	expiration: 14 days
 
 services:
@@ -27,7 +26,6 @@ migrations:
 	groups:
 		project.structure:
 			directory: %appDir%/migrations/structure
-
 
 forms:
     messages:

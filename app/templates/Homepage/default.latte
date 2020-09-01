@@ -10,11 +10,13 @@
 </header>
 
 <section class="about" id="about">
-    <img src="{$basePath}/dist/img/profile.jpg" alt="Iveta Fairaislová">
-    <div class="about-text">
-        <h2>O mně</h2>
-        {box about}
-        <a n:href="Homepage:results" class="btn btn-primary">Výsledky</a>
+    <div class="container">
+        <img src="{$basePath}/dist/img/profile.jpg" alt="Iveta Fairaislová">
+        <div class="about-text">
+            <h2>O mně</h2>
+            {box about}
+            <a n:href="Homepage:results $year" class="btn btn-primary">Výsledky</a>
+        </div>
     </div>
 </section>
 
@@ -50,7 +52,7 @@
                     </a>
                     {/foreach}
 
-                    <a n:href="New:default" class="btn btn-primary btn-sm">Archiv novinek</a>
+                    <a n:href="New:default" class="btn btn-primary">Archiv novinek</a>
 
             </div>
             <!--<div class="delimiter"></div>-->
@@ -58,7 +60,7 @@
                 <h2>Co mě čeká</h2>
                 {foreach $events as $event}
                         <div class="event {if $iterator->first}first{/if}">
-                            <i class="date">{$event->date}</i>
+                            <i class="date">{$event->date_from|date:'d. m. Y'}{if ($event->date_to != NULL)} - {$event->date_to|date:'d. m. Y'}{/if}</i>
                             <h3>{$event->name}</h3>
                         </div>
                 {/foreach}

@@ -22,6 +22,17 @@ class EventPresenter extends BaseUWPresenter
 	{
 		$event = $this->repository->event->get($id);
 
+        $event = $event->toArray();
+
+        /** @var DateTime $date_from */
+        $date_from = $event['date_from'];
+        $event['date_from'] = $date_from->format('d.m.Y');
+
+        if ($event['date_to'] != NULL) {
+            /** @var DateTime $date_to */
+            $date_to = $event['date_to'];
+            $event['date_to'] = $date_to->format('d.m.Y');
+        }
 
         /** @var Form $form */
         $form = $this['eventForm'];
@@ -45,9 +56,11 @@ class EventPresenter extends BaseUWPresenter
             ->addRule(Form::MAX_LENGTH, 'Maximálné délka je %s znaků', 150)
             ->setRequired('Musíte uvést jméno události');
 
-        $form->addText('date', 'Datum')
-            ->setDefaultValue((new DateTime())->format('j.n.Y'))
-            ->setRequired('Musíte uvést plánovaný počátek a konec události.');
+        $form->addText('date_from', 'Datum zahájení')
+            ->setRequired('Musíte uvést plánovaný počátek události.');
+
+        $form->addText('date_to', 'Datum ukončení')
+            ->setDefaultValue((new DateTime())->format('Y.m.d'));
 
         $form->addText('link', 'Odkaz')
             ->addRule(Form::MAX_LENGTH, 'Maximálné délka je %s znaků', 200);
@@ -56,7 +69,6 @@ class EventPresenter extends BaseUWPresenter
 
         $form->onSubmit[] = function (Form $form) {
             $values = $form->getValues(true);
-            $values['date'] = date_create_from_format('j.n.Y', $values['date'])->setTime(0, 0, 0);
 
             if ($values['id'] === '') {
                 unset($values['id']);
