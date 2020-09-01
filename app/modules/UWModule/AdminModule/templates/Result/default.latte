@@ -1,0 +1,13 @@
+{block #title}
+    <i class="icon mdi mdiTrophy"></i> Výsledky
+{/block}
+
+{block #buttons}
+    <a n:href="Result:edit" class="btn btn-success">Přidat výsledek</a>
+{/block}
+
+{block content}
+    <div class="m-admin-fix bg-white pb-2">
+        {control resultGrid}
+    </div>
+{/block}

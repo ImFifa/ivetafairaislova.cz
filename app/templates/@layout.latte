@@ -16,13 +16,13 @@
 					<a n:class="$presenter->isLinkCurrent('Homepage:default') ? 'scroll nav-link' : nav-link" n:href="Homepage:#about">O mně</a>
 				</li>
 				<li class="nav-item">
-					<a n:class="$presenter->isLinkCurrent('Homepage:default') ? 'scroll nav-link' : nav-link" n:href="Homepage:#news">Novinky</a>
+					<a n:class="$presenter->isLinkCurrent('Homepage:default') ? 'scroll nav-link' : nav-link" n:href="Homepage:#informations">Novinky</a>
 				</li>
 				<li class="nav-item">
-					<a n:class="$presenter->isLinkCurrent('Homepage:default') ? 'scroll nav-link' : nav-link" n:href="Homepage:#events">Co mě čeká</a>
+					<a n:class="$presenter->isLinkCurrent('Homepage:default') ? 'scroll nav-link' : nav-link" n:href="Homepage:#informations">Co mě čeká</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" n:href="Homepage:results">Výsledky</a>
+					<a class="nav-link" n:href="Homepage:results 2020">Výsledky</a>
 				</li>
 				<li class="nav-item">
 					<a n:class="$presenter->isLinkCurrent('Homepage:default') ? 'scroll nav-link' : nav-link" n:href="Homepage:#gallery">Galerie</a>
@@ -49,7 +49,16 @@
 
 {block #head}
 
-	<!-- TODO ICON -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{$basePath}/dist/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{$basePath}/dist/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{$basePath}/dist/favicon/favicon-16x16.png">
+	<link rel="manifest" href="{$basePath}/dist/favicon/site.webmanifest">
+	<link rel="mask-icon" href="{$basePath}/dist/favicon/safari-pinned-tab.svg" color="#36a1d0">
+	<link rel="shortcut icon" href="{$basePath}/dist/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="{$basePath}/dist/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
 
 	<link rel="stylesheet" href="{$basePath}/dist/front.bundle.css?{filemtime(WWW . '/dist/front.bundle.css')}" type="text/css">
 {/block}

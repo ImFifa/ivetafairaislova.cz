@@ -3,7 +3,10 @@
 <header class="home" id="home">
     <div class="container">
         <h1>Iveta<strong>Fairaislová</strong></h1>
+        <div class="subheading">Reprezentantka ČR v triatlonu</div>
     </div>
+
+    <a class="scroll-down scroll" n:href="Homepage:#about"><i class="fas fa-chevron-down"></i></a>
 </header>
 
 <section class="about" id="about">
@@ -28,13 +31,37 @@
 
 <section class="informations" id="informations">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6" id="news">
-                <h2>Novinky</h2>
+        <div class="informations-grid">
+            <div class="news" id="news">
+                    <h2>Novinky</h2>
+                    {foreach $news as $new}
+                    <a n:href="New:show $new->slug">
+                        <div class="new hover14">
+                            <!-- {if isset($new->cover)}
+                                <figure><img src="{$basePath}/upload/news/{$new->id}/image.jpg" class="lazyload img-fluid" alt="{$new->title}"></figure>
+                            {/if}
+                            -->
+                            <div class="content">
+                                <i class="date">{$new->created|date:'d. m. Y'}</i>
+                                <h3>{$new->title}</h3>
+                                <p>{$new->content|noescape|truncate:200}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {/foreach}
+
+                    <a n:href="New:default" class="btn btn-primary btn-sm">Archiv novinek</a>
 
             </div>
-            <div class="col-lg-6" id="events">
+            <!--<div class="delimiter"></div>-->
+            <div class="events" id="events">
                 <h2>Co mě čeká</h2>
+                {foreach $events as $event}
+                        <div class="event {if $iterator->first}first{/if}">
+                            <i class="date">{$event->date}</i>
+                            <h3>{$event->name}</h3>
+                        </div>
+                {/foreach}
             </div>
         </div>
     </div>
@@ -43,7 +70,7 @@
 <section class="gallery" id="gallery">
     <div class="container">
        <h2>Fotografie ze závodů</h2>
-        <a n:href="Homepage:gallery" class="btn btn-primary">Galerie</a>
+        <a n:href="Homepage:gallery 2020" class="btn btn-primary">Galerie</a>
     </div>
 </section>
 
@@ -51,13 +78,13 @@
     <div class="container">
         <h2>Podporují mne</h2>
         <div class="row">
-            <div class="col-md-6 col-lg-4"><img src="{$basePath}/dist/img/cta.png" alt="Česká triatlonová asociace" class="img-fluid"></div>
-            <div class="col-md-6 col-lg-4"><img src="{$basePath}/dist/img/fany.jpg" alt="Fany" class="img-fluid"></div>
-            <div class="col-md-6 col-lg-4"><img src="{$basePath}/dist/img/ifire-black.svg" alt="Ifire" class="img-fluid"></div>
-            <div class="col-md-6 col-lg-3"><img src="{$basePath}/dist/img/bukovany-big.png" alt="Obec Bukovany" class="img-fluid"></div>
-            <div class="col-md-6 col-lg-3"><img src="{$basePath}/dist/img/olymp.jpg" alt="Olymp Praha" class="img-fluid"></div>
-            <div class="col-md-6 col-lg-3"><img src="{$basePath}/dist/img/pbtisk.png" alt="PB Tisk" class="img-fluid"></div>
-            <div class="col-md-6 col-lg-3"><img src="{$basePath}/dist/img/btrade-v.jpg" alt="Trade" class="img-fluid"></div>
+            <div class="col-md-6 col-lg-4"><a target="_blank" href="http://triatlon.cz/"><img src="{$basePath}/dist/img/cta.png" alt="Česká triatlonová asociace" class="img-fluid"></a></div>
+            <div class="col-md-6 col-lg-4"><a target="_blank" href="https://www.fany.cz/"><img src="{$basePath}/dist/img/fany.jpg" alt="Fany" class="img-fluid"></a></div>
+            <div class="col-md-6 col-lg-4"><a target="_blank" href="https://www.ifire.cz/"><img src="{$basePath}/dist/img/ifire-black.svg" alt="Ifire" class="img-fluid"></a></div>
+            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.bukovanypb.cz/"><img src="{$basePath}/dist/img/bukovany-big.png" alt="Obec Bukovany" class="img-fluid"></a></div>
+            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.olympcsmv.cz/"><img src="{$basePath}/dist/img/olymp.jpg" alt="Olymp Praha" class="img-fluid"></a></div>
+            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.pbtisk.cz/"><img src="{$basePath}/dist/img/pbtisk.png" alt="PB Tisk" class="img-fluid"></a></div>
+            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.btrade.cz/"><img src="{$basePath}/dist/img/btrade-v.jpg" alt="Trade" class="img-fluid"></a></div>
         </div>
         
     </div>

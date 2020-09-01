@@ -1,7 +1,25 @@
 {block content}
 
-<section class="news" id="news">
+<header class="subheader">
+    <h1 n:block="title">Archiv novinek</h1>
+</header>
+
+<section class="news-page" id="news-page">
     <div class="container">
-        <h1 n:block="title">Novinky</h1>
+        {foreach $news as $new}
+            <a n:href="New:show $new->slug">
+                <div class="new hover14">
+                    {if isset($new->cover)}
+                        <figure><img src="{$basePath}/upload/news/{$new->id}/image.jpg" class="lazyload img-fluid" alt="{$new->title}"></figure>
+                    {/if}
+                    <div class="content">
+                        <i class="date">{$new->created|date:'d. m. Y'}</i>
+                        <h3>{$new->title}</h3>
+                        <p>{$new->content|noescape|truncate:350, '...'}</p>
+                    </div>
+                </div>
+            </a>
+            <hr>
+        {/foreach}
     </div>
 </section>

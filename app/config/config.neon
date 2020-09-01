@@ -11,15 +11,23 @@ session:
 	expiration: 14 days
 
 services:
+	- App\Grid\IEventGridFactory
+	- App\Grid\IResultGridFactory
+	repository: App\Service\ProjectModelRepository
 	router: App\RouterFactory::createRouter
 
 parameters:
+	admin:
+		menu:
+			Události: [':Admin:Event:', calendar-check]
+			Výsledky: [':Admin:Result:', trophy]
 	customTemplatesDir: %appDir%/templates/
 
 migrations:
 	groups:
 		project.structure:
 			directory: %appDir%/migrations/structure
+
 
 forms:
     messages:

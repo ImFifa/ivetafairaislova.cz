@@ -1,7 +1,42 @@
 {block content}
 
+
+<header class="subheader">
+    <h1 n:block="title">Výsledky</h1>
+</header>
+
 <section class="results" id="results">
     <div class="container">
-        <h1 n:block="title">Výsledky</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Datum</th>
+                    <th scope="col">Závod</th>
+                    <th scope="col">Umístění</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $results as $result}
+                    <tr>
+                        <th>{$result->date|date:'d. m. Y'}</th>
+                        <th>
+                            {if ($result->link != NULL)}
+                                <a target="_blank" href="{$result->link}">{$result->name}</a>
+                            {else}
+                                {$result->name}
+                            {/if}
+                        </th>
+                        <th>
+                            <span class="{if ($result->rank < 4)}medal{/if} {if ($result->rank === 1)}gold
+                                    {elseif ($result->rank === 2)}silver
+                                    {elseif ($result->rank === 3)}bronze
+                                {/if}">{$result->rank}.</span>
+                        </th>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>

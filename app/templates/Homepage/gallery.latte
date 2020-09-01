@@ -1,7 +1,22 @@
 {block content}
 
+<header class="subheader">
+    <h1 n:block="title">Galerie {$gallery->name}</h1>
+    <div class="gallery-links">
+    {foreach $galleries as $gal}
+        <a n:href="Homepage:gallery $gal->name" class="btn btn-primary">{$gal->name}</a>
+    {/foreach}
+    </div>
+</header>
+
 <section class="gallery-page" id="gallery-page">
     <div class="container">
-        <h1 n:block="title">Galerie</h1>
+        <div class="row">
+        {foreach $images as $image}
+            <a href="{$basePath}/upload/galleries/{$gallery->id}/{$image->name}" class="col-md-6 col-lg-4 col-xl-3 col-xml-2" data-lightbox="gallery" data-title="{$image->title}">
+                <img data-src="{$basePath}/upload/galleries/{$gallery->id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}">
+            </a>
+        {/foreach}
+        </div>
     </div>
 </section>

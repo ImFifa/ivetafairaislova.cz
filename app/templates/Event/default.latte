@@ -1,7 +1,30 @@
 {block content}
 
-<section class="events" id="events">
+<header class="subheader">
+    <h1 n:block="title">Kalendář akcí</h1>
+</header>
+
+<section class="event-list" id="event-list">
     <div class="container">
-        <h1 n:block="title">Co mě čeká</h1>
+        <div class="event-grid">
+            <div class="future-events">
+                <h2>Plánované akce</h2>
+                {foreach $futureEvents as $fEvent}
+                    <div class="event {if $iterator->first}first{/if}">
+                        <i class="date">{$fEvent->date}</i>
+                        <h3>{$fEvent->name}</h3>
+                    </div>
+                {/foreach}
+            </div>
+            <div class="passed-events">
+                <h2>Uplynulé akce</h2>
+                {foreach $passedEvents as $pEvent}
+                    <div class="event">
+                        <i class="date">{$pEvent->date}</i>
+                        <h3>{$pEvent->name}</h3>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
     </div>
 </section>

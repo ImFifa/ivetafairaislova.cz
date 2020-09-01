@@ -8,12 +8,8 @@ final class EventPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-
-    }
-
-    public function renderShow($slug): void
-    {
-        $this->template->event = $this->repository->event->getEvent($slug);
+        $this->template->futureEvents = $this->repository->getEvents();
+        $this->template->passedEvents = $this->repository->getEvents();
     }
 
 }
