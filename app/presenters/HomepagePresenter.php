@@ -37,6 +37,8 @@ final class HomepagePresenter extends BasePresenter
     public function renderResults($year): void
     {
         $this->template->results = $this->repository->getResultsByYear($year);
+        $this->template->year = $year;
+        $this->template->years = $this->repository->getYearsOfResults();
     }
 
 }

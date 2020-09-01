@@ -2,9 +2,13 @@
 
 <header class="subheader">
     <h1 n:block="title">Galerie {$gallery->name}</h1>
-    <div class="gallery-links">
+    <div>
     {foreach $galleries as $gal}
+        {if ($gal->name === $gallery->name)}
+            <span class="btn btn-primary active">{$gal->name}</span>
+        {else}
         <a n:href="Homepage:gallery $gal->name" class="btn btn-primary">{$gal->name}</a>
+        {/if}
     {/foreach}
     </div>
 </header>

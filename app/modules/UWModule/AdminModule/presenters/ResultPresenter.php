@@ -45,6 +45,9 @@ class ResultPresenter extends BaseUWPresenter
             ->setDefaultValue((new DateTime())->format('d.m.Y'))
             ->setRequired('Musíte uvést datum konání');
 
+
+        $form->addHidden('year');
+
         $form->addText('rank', 'Umístění')
             ->setHtmlType('number')
             ->setRequired('Musíte uvést dosažené umístění');
@@ -56,6 +59,7 @@ class ResultPresenter extends BaseUWPresenter
 
         $form->onSubmit[] = function (Form $form) {
             $values = $form->getValues(true);
+            $values['year'] = date("Y", strtotime($values['date']));
 
             if ($values['id'] === '') {
                 unset($values['id']);

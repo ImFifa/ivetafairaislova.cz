@@ -40,9 +40,14 @@ class ProjectModelRepository extends ModelRepository
     {
         return $this->result->getTable()->where('YEAR(date)', $year)->fetchAll();
     }
-    public function getAllYearsOfResults(): array
+    public function getYearsOfResults(): array
     {
-        return $this->result->getTable()->fetchAll();
+        $results = $this->result->getTable()->fetchAll();
+        foreach ($results as $result) {
+            $arr[] = date("Y", strtotime((string) $result->date));
+        }
+
+        return array_unique($arr);
     }
 
     // events

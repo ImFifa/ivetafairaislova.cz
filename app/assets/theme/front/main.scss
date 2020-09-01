@@ -255,6 +255,13 @@ header {
   &::before {
     height: 40vh;
   }
+
+  .active {
+    transition: all .25s ease-in;
+    padding: 1rem 2rem;
+    background-color: $secondary;
+    cursor: unset;
+  }
 }
 
 #about {
@@ -357,6 +364,54 @@ header {
 // NEW-PAGE
 .new-page {
   padding: 80px 0 120px 0;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .galerie {
+    margin-top: 60px;
+
+    .col-md-6 {
+      justify-content: center;
+      position: relative;
+      padding: 5px;
+
+      img {
+        max-height: 250px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+      }
+
+      .n-of-photos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        background-color: rgba($black, .4);
+        color: $white;
+        font-size: 2.4rem;
+        font-weight: 500;
+        transition: .25s ease-in;
+
+        small {
+          font-size: 1rem;
+          font-weight: 400;
+        }
+
+        &:hover {
+          background-color: rgba($black, .2);
+          color: rgba($white, .5);
+        }
+      }
+    }
+  }
 }
 
 // GALLERY
@@ -514,11 +569,7 @@ th {
 }
 .medal {
   font-weight: 700;
-  font-size: 1.2rem;
 }
-.gold {color: gold;}
-.silver {color: silver;}
-.bronze {color: #cd7f32;}
 
 // GALLERY-PAGE
 .gallery-page {
