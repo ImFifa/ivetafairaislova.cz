@@ -1,13 +1,13 @@
 
 CREATE TABLE IF NOT EXISTS `results` (
                            `id` int NOT NULL,
-                           `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                           `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
                            `date` date NOT NULL,
                            `year` int NOT NULL,
                            `rank` int NOT NULL,
                            `link` varchar(200) NOT NULL,
                            `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `results` (`id`, `name`, `date`, `year`, `rank`, `link`, `created`) VALUES
 (1, 'World Cup Santo Domingo', '2019-11-10', 2019, 33, 'https://triathlon.org/results/result/2019_santo_domingo_itu_triathlon_world_cup/339014', '2020-08-31 11:48:55'),
