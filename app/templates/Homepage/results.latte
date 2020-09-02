@@ -43,8 +43,9 @@
         </div>
         {else}
             <h3>Tento rok jsem zatím nezveřejnila žádné výsledky.</h3>
-            <p></p>
+            <p>Prohlédněte si výsledky z minulých ročníků.</p>
             {foreach $years as $y}
+                <span n:if="!$iterator->first">, </span>
                 <a n:href="Homepage:results $y">{$y}</a>
             {/foreach}
         {/if}

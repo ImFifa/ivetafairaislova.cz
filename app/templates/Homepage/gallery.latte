@@ -1,10 +1,10 @@
 {block content}
 
 <header class="subheader">
-    <h1 n:block="title">Galerie {$gallery->name}</h1>
+    <h1 n:block="title">Galerie <span n:if="$gallery != NULL">{$gallery->name}</span></h1>
     <div class="subheader-links">
     {foreach $galleries as $gal}
-        {if ($gal->name === $gallery->name)}
+        {if (isset($gallery->name) && $gal->name === $gallery->name)}
             <span class="btn btn-primary active">{$gal->name}</span>
         {else}
         <a n:href="Homepage:gallery $gal->name" class="btn btn-primary">{$gal->name}</a>
@@ -15,6 +15,7 @@
 
 <section class="gallery-page" id="gallery-page">
     <div class="container">
+        {if (!empty($images))}
         <div class="row">
         {foreach $images as $image}
             <a href="{$basePath}/upload/galleries/{$gallery->id}/{$image->name}" class="col-xsm-6 col-lg-4 col-xl-3 col-xml-2" data-lightbox="gallery" data-title="{$image->title}">
@@ -22,5 +23,13 @@
             </a>
         {/foreach}
         </div>
+        {else}
+            <h3>Tento rok jsem zatím nezveřejnila žádné fotografie.</h3>
+            <p>Prohlédněte si záběry z minulých ročníků.</p>
+            {foreach $galleries as $gal}
+                <span n:if="!$iterator->first">, </span>
+                <a n:href="Homepage:results $gal->name">{$gal->name}</a>
+            {/foreach}
+        {/if}
     </div>
 </section>

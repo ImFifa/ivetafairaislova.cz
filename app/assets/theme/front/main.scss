@@ -67,8 +67,12 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.blue-bg {
+  background-color: #177098;
+}
+
 .navbar {
-  transition: top 0.3s ease-in-out;
+  transition: all .4s ease-in-out;
   padding: 0;
 
   .btn-area {

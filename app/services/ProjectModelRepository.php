@@ -26,7 +26,7 @@ class ProjectModelRepository extends ModelRepository
     }
 
     // gallery
-    public function getGallery($year): ActiveRow
+    public function getGallery($year): ?ActiveRow
     {
         return $this->gallery->getTable()->where('name', $year)->fetch();
     }

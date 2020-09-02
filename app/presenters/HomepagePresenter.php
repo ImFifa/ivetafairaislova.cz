@@ -30,8 +30,13 @@ final class HomepagePresenter extends BasePresenter
     {
 
         $this->template->galleries = $this->repository->getAllGalleries();
-        $this->template->gallery = $this->repository->getGallery($year);
-        $this->template->images = $this->images->getImagesByGallery($this->template->gallery->id);
+        $gallery = $this->repository->getGallery($year);
+        if ($gallery != NULL) {
+            $this->template->gallery = $gallery;
+            $this->template->images = $this->images->getImagesByGallery($gallery->id);
+        } else {
+            $this->template->gallery = NULL;
+        }
 
     }
 

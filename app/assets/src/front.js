@@ -32,10 +32,10 @@ window.onscroll = function() {
 	prevScrollpos = currentScrollPos;
 
 
-	if (currentScrollPos > 200 && window.innerWidth > 1000) {
-		$nav.style.backgroundColor = "#177098";
+	if (currentScrollPos > 240 && window.innerWidth > 1000) {
+		$nav.classList.add('blue-bg')
 	} else if (currentScrollPos < 1) {
-		$nav.style.backgroundColor = "unset";
+		$nav.classList.remove('blue-bg')
 	}
 
 	if (currentScrollPos > window.innerHeight) {
