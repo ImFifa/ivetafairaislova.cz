@@ -101,6 +101,16 @@ body {
   }
 }
 
+.navbar-brand {
+  padding: 2rem 4.7rem;
+  font-size: 1.4rem !important;
+  display: none;
+}
+
+.show .navbar-brand {
+  display: block;
+}
+
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 1.2rem 1.7rem;
 }
@@ -572,6 +582,13 @@ section {
 }
 
 // RESULTS
+.results {
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
 th {
   font-weight: 400;
 }
