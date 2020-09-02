@@ -3,7 +3,7 @@
 
 <header class="subheader">
     <h1 n:block="title">Výsledky {$year}</h1>
-    <div>
+    <div class="subheader-links">
         {foreach $years as $y}
             <a n:href="Homepage:results $y" class="btn btn-primary {if ($y === $year)}active{/if}">{$y}</a>
         {/foreach}

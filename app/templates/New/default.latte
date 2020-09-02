@@ -15,7 +15,7 @@
                     <div class="content">
                         <i class="date">{$new->created|date:'d. m. Y'}</i>
                         <h3>{$new->title}</h3>
-                        <p>{$new->content|noescape|truncate:350, '...'}</p>
+                        <p class="new-content">{$new->content|noescape|truncate:350, '...'}</p>
                     </div>
                 </div>
             </a>

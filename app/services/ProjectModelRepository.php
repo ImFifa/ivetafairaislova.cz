@@ -26,9 +26,9 @@ class ProjectModelRepository extends ModelRepository
     }
 
     // gallery
-    public function getGallery(string $name): ActiveRow
+    public function getGallery($year): ActiveRow
     {
-        return $this->gallery->getTable()->where('name', $name)->fetch();
+        return $this->gallery->getTable()->where('name', $year)->fetch();
     }
     public function getAllGalleries(): array
     {

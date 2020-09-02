@@ -2,7 +2,7 @@
 
 <header class="subheader">
     <h1 n:block="title">Galerie {$gallery->name}</h1>
-    <div>
+    <div class="subheader-links">
     {foreach $galleries as $gal}
         {if ($gal->name === $gallery->name)}
             <span class="btn btn-primary active">{$gal->name}</span>
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
         {foreach $images as $image}
-            <a href="{$basePath}/upload/galleries/{$gallery->id}/{$image->name}" class="col-md-6 col-lg-4 col-xl-3 col-xml-2" data-lightbox="gallery" data-title="{$image->title}">
+            <a href="{$basePath}/upload/galleries/{$gallery->id}/{$image->name}" class="col-xsm-6 col-lg-4 col-xl-3 col-xml-2" data-lightbox="gallery" data-title="{$image->title}">
                 <img data-src="{$basePath}/upload/galleries/{$gallery->id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}">
             </a>
         {/foreach}

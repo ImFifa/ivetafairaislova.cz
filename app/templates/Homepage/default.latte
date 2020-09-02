@@ -58,12 +58,16 @@
             <!--<div class="delimiter"></div>-->
             <div class="events" id="events">
                 <h2>Co mě čeká</h2>
-                {foreach $events as $event}
-                        <div class="event {if $iterator->first}first{/if}">
-                            <i class="date">{$event->date_from|date:'d. m. Y'}{if ($event->date_to != NULL)} - {$event->date_to|date:'d. m. Y'}{/if}</i>
-                            <h3>{$event->name}</h3>
-                        </div>
-                {/foreach}
+                {if (!empty($events))}
+                    {foreach $events as $event}
+                            <div class="event {if $iterator->first}first{/if}">
+                                <i class="date">{$event->date_from|date:'d. m. Y'}{if ($event->date_to != NULL)} - {$event->date_to|date:'d. m. Y'}{/if}</i>
+                                <h3>{$event->name}</h3>
+                            </div>
+                    {/foreach}
+                {else}
+                    <h4>Kalendář aktuálně neobsahuje žádné blížící se akce.</h4>
+                {/if}
             </div>
         </div>
     </div>
@@ -80,13 +84,13 @@
     <div class="container">
         <h2>Podporují mne</h2>
         <div class="row">
-            <div class="col-md-6 col-lg-4"><a target="_blank" href="http://triatlon.cz/"><img src="{$basePath}/dist/img/cta.png" alt="Česká triatlonová asociace" class="img-fluid"></a></div>
-            <div class="col-md-6 col-lg-4"><a target="_blank" href="https://www.fany.cz/"><img src="{$basePath}/dist/img/fany.jpg" alt="Fany" class="img-fluid"></a></div>
-            <div class="col-md-6 col-lg-4"><a target="_blank" href="https://www.ifire.cz/"><img src="{$basePath}/dist/img/ifire-black.svg" alt="Ifire" class="img-fluid"></a></div>
-            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.bukovanypb.cz/"><img src="{$basePath}/dist/img/bukovany-big.png" alt="Obec Bukovany" class="img-fluid"></a></div>
-            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.olympcsmv.cz/"><img src="{$basePath}/dist/img/olymp.jpg" alt="Olymp Praha" class="img-fluid"></a></div>
-            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.pbtisk.cz/"><img src="{$basePath}/dist/img/pbtisk.png" alt="PB Tisk" class="img-fluid"></a></div>
-            <div class="col-md-6 col-lg-3"><a target="_blank" href="http://www.btrade.cz/"><img src="{$basePath}/dist/img/btrade-v.jpg" alt="Trade" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-4"><a target="_blank" href="http://triatlon.cz/"><img src="{$basePath}/dist/img/cta.png" alt="Česká triatlonová asociace" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-4"><a target="_blank" href="https://sorrygravity.cz/cs/"><img src="{$basePath}/dist/img/on-running.png" alt="On Running" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-4"><a target="_blank" href="https://www.fany.cz/"><img src="{$basePath}/dist/img/fany.jpg" alt="Fany" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-3"><a target="_blank" href="http://www.bukovanypb.cz/"><img src="{$basePath}/dist/img/bukovany-big.png" alt="Obec Bukovany" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-3"><a target="_blank" href="http://www.olympcsmv.cz/"><img src="{$basePath}/dist/img/olymp.jpg" alt="Olymp Praha" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-3"><a target="_blank" href="http://www.pbtisk.cz/"><img src="{$basePath}/dist/img/pbtisk.png" alt="PB Tisk" class="img-fluid"></a></div>
+            <div class="col-sm-6 col-md-3 mx-auto"><a target="_blank" href="http://www.btrade.cz/"><img src="{$basePath}/dist/img/btrade-v.jpg" alt="Trade" class="img-fluid"></a></div>
         </div>
         
     </div>
