@@ -130,7 +130,7 @@
   #about {
     .container {
       grid-template-areas: "img" "about";
-      grid-gap: 30px;
+      grid-gap: 10px;
 
     }
 
@@ -140,19 +140,11 @@
 
     .about-text {
       margin-top: 2rem;
-
-      h2 {
-        text-align: center;
-      }
-      p {
-        text-align: center;
-      }
     }
   }
 
   .btn {
-    margin: 2rem auto;
-    display: table;
+    margin: 2rem 0;
   }
 
   #informations {
@@ -181,7 +173,7 @@
   }
 
 }
-@include media-breakpoint-down(xsm) {
+@include media-breakpoint-down(ddd) {
   .subheader {
     padding: 2rem 0;
     h1 {
@@ -204,7 +196,6 @@
 
   h2 {
     font-size: 2.1rem;
-    text-align: center;
   }
 
   h3 {

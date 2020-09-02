@@ -102,13 +102,20 @@ body {
 }
 
 .navbar-brand {
-  padding: 2rem 4.7rem;
+  padding: 1rem 0rem 1rem 2rem;
   font-size: 1.4rem !important;
   display: none;
+
+  strong {
+    display: block;
+  }
 }
 
 .show .navbar-brand {
   display: block;
+}
+.show li:first-child {
+  display: none;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
