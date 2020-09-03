@@ -5,6 +5,7 @@ namespace App;
 use Nette;
 use Nette\Application\Routers\RouteList;
 use Nette\Application\Routers\Route;
+use Nette\Utils\Strings;
 
 class RouterFactory
 {
@@ -24,7 +25,8 @@ class RouterFactory
 
 		// Basic Routes
         $project[] = new Route('[<lang=cs [a-z]{2}>/]', 'Homepage:default');
-        $project[] = new Route('[<lang=cs [a-z]{2}>/]galerie[/<year='. date('Y'). '>]', 'Homepage:gallery');
+        $project[] = new Route('[<lang=cs [a-z]{2}>/]galerie', 'Homepage:gallery');
+        $project[] = new Route('[<lang=cs [a-z]{2}>/]galerie/<id>', 'Homepage:galleryShow');
         $project[] = new Route('[<lang=cs [a-z]{2}>/]vysledky[/<year='. date('Y'). '>]', 'Homepage:results');
         $project[] = new Route('[<lang=cs [a-z]{2}>/]novinky', 'New:default');
         $project[] = new Route('[<lang=cs [a-z]{2}>/]novinka/<slug>', 'New:show');

@@ -26,13 +26,14 @@ class ProjectModelRepository extends ModelRepository
     }
 
     // gallery
-    public function getGallery($year): ?ActiveRow
+    public function getImageByGallery(int $id): array
     {
-        return $this->gallery->getTable()->where('name', $year)->fetch();
+        return $this->image->getTable()->where('gallery_id', $id)->order('id DESC')->order('position ASC')->fetchAll();
+
     }
     public function getAllGalleries(): array
     {
-        return $this->gallery->getTable()->order('name DESC')->fetchAll();
+        return $this->gallery->getTable()->order('id DESC')->fetchAll();
     }
 
     // results

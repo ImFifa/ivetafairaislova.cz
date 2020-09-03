@@ -1,0 +1,23 @@
+{block content}
+
+<header class="subheader">
+    <h1 n:block="title">{$gallery->name}</h1>
+    <div class="subheading">Fotogalerie <i class="fas fa-camera"></i></div>
+</header>
+
+<section class="gallery-page" id="gallery-page">
+    <div class="container">
+        <div class="row">
+            {if !empty($images)}
+            {foreach $images as $image}
+                <a href="{$basePath}/upload/galleries/{$gallery->id}/{$image->name}" class="hover14 col-xsm-6 col-lg-4 col-xl-3 col-xml-2" data-lightbox="gallery" data-title="{$image->title}">
+                    <figure><img data-src="{$basePath}/upload/galleries/{$gallery->id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}"></figure>
+                </a>
+            {/foreach}
+            {else}
+                <h3>Tato galerie neobsahuje žádné fotografie.</h3>
+            {/if}
+        </div>
+        <a n:href="Homepage:gallery" class="btn btn-primary"><i class="fas fa-hand-point-left"></i> Zpět</a>
+    </div>
+</section>

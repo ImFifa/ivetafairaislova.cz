@@ -1,35 +1,23 @@
 {block content}
 
 <header class="subheader">
-    <h1 n:block="title">Galerie <span n:if="$gallery != NULL">{$gallery->name}</span></h1>
-    <div class="subheader-links">
-    {foreach $galleries as $gal}
-        {if (isset($gallery->name) && $gal->name === $gallery->name)}
-            <span class="btn btn-primary active">{$gal->name}</span>
-        {else}
-        <a n:href="Homepage:gallery $gal->name" class="btn btn-primary">{$gal->name}</a>
-        {/if}
-    {/foreach}
-    </div>
+    <h1 n:block="title">Galerie</h1>
 </header>
 
-<section class="gallery-page" id="gallery-page">
+<section class="galleries-page" id="galleries-page">
     <div class="container">
-        {if (!empty($images))}
-        <div class="row">
-        {foreach $images as $image}
-            <a href="{$basePath}/upload/galleries/{$gallery->id}/{$image->name}" class="col-xsm-6 col-lg-4 col-xl-3 col-xml-2" data-lightbox="gallery" data-title="{$image->title}">
-                <img data-src="{$basePath}/upload/galleries/{$gallery->id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}">
-            </a>
-        {/foreach}
-        </div>
-        {else}
-            <h3>Tento rok jsem zatím nezveřejnila žádné fotografie.</h3>
-            <p>Prohlédněte si záběry z minulých ročníků.</p>
-            {foreach $galleries as $gal}
-                <span n:if="!$iterator->first">, </span>
-                <a n:href="Homepage:results $gal->name">{$gal->name}</a>
+        {if (!empty($galleries))}
+            <div class="row">
+            {foreach $galleries as $gallery}
+                <div class="gall-box col-xsm-6 col-lg-4 col-xl-3 col-xml-2">
+                    <a n:href="Homepage:galleryShow $gallery->id" class="btn btn-outline-primary">
+                        {$gallery->name}
+                    </a>
+                </div>
             {/foreach}
+            </div>
+        {else}
+            <h3>Zatím nebyla zveřejněna žádna galerie.</h3>
         {/if}
     </div>
 </section>

@@ -7,6 +7,7 @@ namespace App\ProjectModule\Presenters;
 use App\Model\NewModel;
 use App\Model\ImageModel;
 use App\Model\GalleryModel;
+use Nette\Utils\Strings;
 
 final class HomepagePresenter extends BasePresenter
 {
@@ -26,18 +27,16 @@ final class HomepagePresenter extends BasePresenter
         $this->template->year = max($this->repository->getYearsOfResults());
     }
 
-    public function renderGallery($year): void
+
+    public function renderGallery(): void
     {
-
         $this->template->galleries = $this->repository->getAllGalleries();
-        $gallery = $this->repository->getGallery($year);
-        if ($gallery != NULL) {
-            $this->template->gallery = $gallery;
-            $this->template->images = $this->images->getImagesByGallery($gallery->id);
-        } else {
-            $this->template->gallery = NULL;
-        }
+    }
 
+    public function renderGalleryShow(int $id): void
+    {
+        $this->template->gallery = $this->gallery->getGallery($id);
+        $this->template->images = $this->images->getImagesByGallery($id);
     }
 
     public function renderResults($year): void
