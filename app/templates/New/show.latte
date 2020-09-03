@@ -22,7 +22,7 @@
                     {if $iterator->counter < 5}
                         <a href="{$basePath}/upload/galleries/{$new->gallery_id}/{$image->name}" class="col-xsm-6 gal-img col-lg-3" data-lightbox="gallery" data-title="{$image->title}">
                             <img data-src="{$basePath}/upload/galleries/{$new->gallery_id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}">
-                            <div n:if="$iterator->counter === 4" class="n-of-photos">{count($images) - 3}
+                            <div n:if="$iterator->counter === 4 && !$iterator->isLast()" class="n-of-photos">{count($images) - 3}
                                 <small>{if count($images) <= 7}další fotografie{else}dalších fotografií{/if}</small>
                             </div>
                         </a>

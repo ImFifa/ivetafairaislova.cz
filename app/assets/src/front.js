@@ -25,7 +25,7 @@ window.onscroll = function() {
 	if (prevScrollpos > currentScrollPos) {
 		$nav.style.top = "0";
 	} else {
-		if (!$navbarCollapse.classList.contains('show') && window.pageYOffset > 200) {
+		if (!$navbarCollapse.classList.contains('show') && window.pageYOffset > 50) {
 			$nav.style.top = "-130px";
 		}
 	}
