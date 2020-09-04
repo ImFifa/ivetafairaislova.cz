@@ -326,7 +326,7 @@ header {
   &::before {
     content: '';
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -385,7 +385,7 @@ header {
     right: 0;
     top: 0;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     z-index: -1;
   }
 }
@@ -586,6 +586,7 @@ section {
       position: absolute;
       left: 0;
       width: 6px;
+      top: 0;
       height: 100%;
       background-color: $primary;
     }
