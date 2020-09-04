@@ -62,7 +62,11 @@
                     {foreach $events as $event}
                             <div class="event {if $iterator->first}first{/if}">
                                 <i class="date">{$event->date_from|date:'d. m. Y'}{if ($event->date_to != NULL)} - {$event->date_to|date:'d. m. Y'}{/if}</i>
-                                <h3>{$event->name}</h3>
+                                {if ($event->link != NULL)}
+                                    <a target="_blank" href="{$event->link}"><h3>{$event->name}</h3></a>
+                                {else}
+                                    <h3>{$event->name}</h3>
+                                {/if}
                             </div>
                     {/foreach}
                 {else}
