@@ -25,6 +25,7 @@ class RouterFactory
 
 		// Basic Routes
         $project[] = new Route('[<lang=cs [a-z]{2}>/]', 'Homepage:default');
+        $project[] = new Route('[<lang=cs [a-z]{2}>/]o-mne', 'Homepage:default');
         $project[] = new Route('[<lang=cs [a-z]{2}>/]galerie', 'Homepage:gallery');
         $project[] = new Route('[<lang=cs [a-z]{2}>/]galerie/<id>', 'Homepage:galleryShow');
         $project[] = new Route('[<lang=cs [a-z]{2}>/]vysledky[/<year='. date('Y'). '>]', 'Homepage:results');
